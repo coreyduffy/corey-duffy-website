@@ -1,3 +1,18 @@
+const themeToggle = document.querySelector('.theme-toggle');
+
+function updateToggleLabel(theme) {
+    themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+}
+
+themeToggle.addEventListener('click', () => {
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    updateToggleLabel(theme);
+});
+
+updateToggleLabel(document.documentElement.getAttribute('data-theme'));
+
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -10,22 +25,6 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         navToggle.classList.remove('active');
         navMenu.classList.remove('active');
-    });
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        if (this.classList.contains('email-link')) return;
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const navHeight = document.querySelector('.nav').offsetHeight;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
     });
 });
 
@@ -48,3 +47,22 @@ document.querySelectorAll('.email-link').forEach(link => {
 });
 
 document.querySelector('.footer-year').textContent = new Date().getFullYear();
+
+const navLinks = new Map(
+    [...document.querySelectorAll('.nav-menu a[href^="#"]')].map(link => [link.getAttribute('href').slice(1), link])
+);
+
+const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const link = navLinks.get(entry.target.id);
+        if (!link) return;
+        if (entry.isIntersecting) {
+            navLinks.forEach(other => other.classList.remove('active'));
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));

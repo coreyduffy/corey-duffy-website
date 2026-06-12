@@ -3,43 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Corey Duffy - Senior Software Engineer & AI Solutions Architect with over a decade of software engineering experience delivering robust solutions and award-winning enterprise solutions.">
+    <meta name="description" content="Corey Duffy - Senior Software Engineer & AI Solutions Architect with over a decade of experience delivering robust software and award-winning AI products for enterprise clients.">
     <title>Corey Duffy | Senior Software Engineer, Tech Lead & AI Solutions Architect</title>
+    <link rel="canonical" href="https://coreyduffy.com/">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://coreyduffy.com/">
+    <meta property="og:title" content="Corey Duffy | Senior Software Engineer, Tech Lead & AI Solutions Architect">
+    <meta property="og:description" content="Corey Duffy - Senior Software Engineer & AI Solutions Architect with over a decade of experience delivering robust software and award-winning AI products for enterprise clients.">
+    <meta property="og:image" content="https://coreyduffy.com/assets/headshot-480.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Corey Duffy | Senior Software Engineer, Tech Lead & AI Solutions Architect">
+    <meta name="twitter:description" content="Corey Duffy - Senior Software Engineer & AI Solutions Architect with over a decade of experience delivering robust software and award-winning AI products for enterprise clients.">
+    <meta name="twitter:image" content="https://coreyduffy.com/assets/headshot-480.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Corey Duffy",
+        "jobTitle": "Senior Software Engineer & AI Solutions Architect",
+        "url": "https://coreyduffy.com/",
+        "image": "https://coreyduffy.com/assets/headshot-480.jpg",
+        "sameAs": [
+            "https://linkedin.com/in/coreyduffy",
+            "https://github.com/coreyduffy"
+        ]
+    }
+    </script>
+    <script>
+    var theme = localStorage.getItem('theme');
+    if (theme !== 'light' && theme !== 'dark') theme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#content" class="skip-link">Skip to content</a>
     <nav class="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <img src="assets/headshot.jpg" alt="Corey Duffy" class="nav-headshot">
+                <img src="assets/headshot-480.jpg" alt="" class="nav-headshot" width="36" height="36">
+                <span class="nav-name">Corey Duffy</span>
             </a>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <ul class="nav-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="nav-controls">
+                <button type="button" class="theme-toggle" aria-label="Switch to light mode">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <main>
+    <main id="content">
         <section class="hero" id="hero">
             <div class="hero-content">
                 <div class="hero-image">
-                    <img src="assets/headshot.jpg" alt="Corey Duffy" class="headshot" onerror="this.style.display='none'">
+                    <picture>
+                        <source srcset="assets/headshot-480.webp" type="image/webp">
+                        <img src="assets/headshot-480.jpg" alt="Corey Duffy" class="headshot" width="140" height="140">
+                    </picture>
                 </div>
                 <div class="hero-text">
                     <h1>Corey Duffy</h1>
                     <p class="hero-title">Senior Software Engineer, Tech Lead & AI Solutions Architect</p>
-                    <p class="hero-tagline">Over a decade of software engineering experience, delivering robust solutions and award-winning AI solutions for enterprise clients across fintech, cybersecurity, medtech and transport.</p>
+                    <p class="hero-tagline">Over a decade of software engineering experience, delivering robust software and award-winning AI products for enterprise clients across fintech, cybersecurity, medtech and transport.</p>
                     <div class="hero-cta">
                         <a href="https://linkedin.com/in/coreyduffy" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn</a>
                         <a href="https://github.com/coreyduffy" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
@@ -71,7 +113,7 @@
                                 <span class="company">Brightbeam</span>
                                 <span class="date">Apr 2025 – Present</span>
                             </div>
-                            <details>
+                            <details open>
                                 <summary>AI solutions for enterprise clients in medtech & transport</summary>
                                 <ul>
                                     <li>Led JJ Kavanagh project from concept to completion, enabling client to win Investment in Innovation Award</li>
@@ -189,38 +231,15 @@
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h3>Languages & Frameworks</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">Micronaut</span>
-                            <span class="skill-tag">Spring</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">HTML/CSS</span>
-                        </div>
+                        <div class="skill-list">Python · Django · Java · Micronaut · Spring · JavaScript · React · HTML/CSS</div>
                     </div>
                     <div class="skill-category">
                         <h3>AI & Data</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">LLMs</span>
-                            <span class="skill-tag">Vector Databases</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">ElasticSearch</span>
-                            <span class="skill-tag">ClickHouse</span>
-                        </div>
+                        <div class="skill-list">LLMs · Vector Databases · PostgreSQL · MySQL · ElasticSearch · ClickHouse</div>
                     </div>
                     <div class="skill-category">
                         <h3>Cloud & Infrastructure</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Azure</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">CDK</span>
-                            <span class="skill-tag">Git</span>
-                        </div>
+                        <div class="skill-list">AWS · Azure · Docker · Kubernetes · CDK · Git</div>
                     </div>
                 </div>
             </div>
@@ -251,6 +270,11 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; <span class="footer-year"></span> Corey Duffy. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#" class="email-link" data-u="coreyjduffy" data-d="duck.com">Email</a>
+                <a href="https://linkedin.com/in/coreyduffy" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/coreyduffy" target="_blank" rel="noopener">GitHub</a>
+            </div>
         </div>
     </footer>
 
