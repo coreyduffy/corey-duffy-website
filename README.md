@@ -25,7 +25,7 @@ npm run test:ui       # interactive UI
 
 ```
 index.html    # single page with hero, about, experience, skills, contact
-styles.css    # responsive design, dark theme
-script.js     # nav toggle, smooth scroll, email obfuscation
+styles.css    # responsive design, dark/light themes via CSS variables
+script.js     # nav toggle, theme toggle, scrollspy, email obfuscation
 tests/        # Playwright specs
 ```

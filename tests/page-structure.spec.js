@@ -20,6 +20,7 @@ test.describe('page structure', () => {
   test('nav elements exist', async ({ page }) => {
     await expect(page.locator('.nav')).toBeVisible();
     await expect(page.locator('.nav-logo')).toBeVisible();
+    await expect(page.locator('.nav-name')).toContainText('Corey Duffy');
     await expect(page.locator('.nav-toggle')).toBeAttached();
     await expect(page.locator('.nav-menu')).toBeAttached();
   });
@@ -46,10 +47,13 @@ test.describe('page structure', () => {
     expect(count).toBeGreaterThan(0);
   });
 
-  test('skills section has categories', async ({ page }) => {
+  test('skills section has categories as text lists', async ({ page }) => {
     const skillCategories = page.locator('.skill-category');
     const count = await skillCategories.count();
     expect(count).toBeGreaterThan(0);
+
+    await expect(page.locator('.skill-list')).toHaveCount(count);
+    await expect(page.locator('.skill-tag')).toHaveCount(0);
   });
 
   test('contact section has links', async ({ page }) => {
@@ -111,5 +115,50 @@ test.describe('accessibility', () => {
   test('meta description exists', async ({ page }) => {
     const metaDesc = page.locator('meta[name="description"]');
     await expect(metaDesc).toHaveAttribute('content');
+  });
+
+  test('skip link is first focusable element and targets main content', async ({ page }) => {
+    await page.keyboard.press('Tab');
+    const skipLink = page.locator('.skip-link');
+    await expect(skipLink).toBeFocused();
+    await expect(skipLink).toHaveAttribute('href', '#content');
+    await expect(page.locator('main#content')).toBeAttached();
+  });
+
+  test('images declare width and height', async ({ page }) => {
+    const images = page.locator('img');
+    const count = await images.count();
+
+    for (let i = 0; i < count; i++) {
+      await expect(images.nth(i)).toHaveAttribute('width');
+      await expect(images.nth(i)).toHaveAttribute('height');
+    }
+  });
+});
+
+test.describe('seo and social metadata', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
+
+  test('head contains Open Graph and Twitter card tags', async ({ page }) => {
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Corey Duffy/);
+    await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content');
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /^https:\/\/coreyduffy\.com\//);
+    await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', 'https://coreyduffy.com/');
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content');
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', /^https:\/\/coreyduffy\.com\//);
+  });
+
+  test('head contains canonical, favicon, and JSON-LD person schema', async ({ page }) => {
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://coreyduffy.com/');
+    await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href');
+    await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute('href');
+
+    const jsonLd = await page.locator('script[type="application/ld+json"]').textContent();
+    const person = JSON.parse(jsonLd);
+    expect(person['@type']).toBe('Person');
+    expect(person.name).toBe('Corey Duffy');
+    expect(person.sameAs.length).toBeGreaterThan(0);
   });
 });
