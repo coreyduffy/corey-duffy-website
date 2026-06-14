@@ -17,5 +17,6 @@ playwright-report/
 coverage/
 
 # Build
+build/
 dist/
 .cache/

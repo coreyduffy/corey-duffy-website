@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<BlogLayout
+  title="Writing"
+  description="Notes on software engineering, AI, and building products."
+>
+  <div class="container blog-index">
+    <header class="blog-index-header">
+      <h1>Writing</h1>
+      <p class="blog-index-lead">Notes on software engineering, AI, and building products.</p>
+    </header>
+    <ul class="blog-post-list">
+      {posts.map((post) => (
+        <li class="blog-post-card">
+          <a href={`/blog/${post.id}/`} class="blog-post-link">
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BlogLayout>

@@ -5,6 +5,13 @@
   "main": "script.js",
   "scripts": {
     "serve": "npx serve -l 3000",
+    "serve:build": "npx serve -l 3000 build",
+    "build:blog": "npm run build --prefix blog",
+    "build:merge": "node scripts/merge-static.mjs",
+    "build:sitemap": "node scripts/generate-sitemap.mjs",
+    "build": "rm -rf build && npm run build:blog && npm run build:merge && npm run build:sitemap",
+    "dev:blog": "npm run dev --prefix blog",
+    "postinstall": "npm install --prefix blog",
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
     "test:headed": "npx playwright test --headed"
