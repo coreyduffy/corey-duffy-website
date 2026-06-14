@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const canonical = new URL(`/blog/${post.id}/`, Astro.site).href;
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  canonical={canonical}
+  ogType="article"
+>
+  <article class="container blog-article">
+    <header class="blog-article-header">
+      <h1>{post.data.title}</h1>
+      <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+    </header>
+    <div class="blog-prose">
+      <Content />
+    </div>
+    <p class="blog-back">
+      <a href="/blog/">← All posts</a>
+    </p>
+  </article>
+</BlogLayout>

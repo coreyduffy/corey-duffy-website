@@ -14,12 +14,12 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { channel: 'chrome' },
     },
   ],
   webServer: {
-    command: 'npx serve -l 3000',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
+    command: 'npm run build && npx serve -l 3000 build',
+    url: 'http://localhost:3000/blog/',
+    reuseExistingServer: false,
+    timeout: 120000,
   },
 });
