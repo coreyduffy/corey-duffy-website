@@ -6,12 +6,12 @@
     --color-bg-hover: #1a1a1d;
     --color-text: #fafafa;
     --color-text-muted: #a1a1aa;
-    --color-accent: #f5a623;
-    --color-accent-hover: #ffb84d;
+    --color-accent: #4ade80;
+    --color-accent-hover: #86efac;
     --color-border: #27272a;
     --color-on-accent: #0a0a0b;
     --color-nav-bg: rgba(10, 10, 11, 0.8);
-    --color-accent-glow: rgba(245, 166, 35, 0.15);
+    --color-accent-glow: rgba(74, 222, 128, 0.15);
     --shadow-card: none;
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
@@ -36,12 +36,12 @@
     --color-bg-hover: #e4e4e7;
     --color-text: #0a0a0b;
     --color-text-muted: #71717a;
-    --color-accent: #d97706;
-    --color-accent-hover: #b45309;
+    --color-accent: #15803d;
+    --color-accent-hover: #166534;
     --color-border: #d4d4d8;
-    --color-on-accent: #0a0a0b;
+    --color-on-accent: #fafafa;
     --color-nav-bg: rgba(250, 250, 250, 0.8);
-    --color-accent-glow: rgba(217, 119, 6, 0.2);
+    --color-accent-glow: rgba(21, 128, 61, 0.2);
     --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -337,9 +337,12 @@ a:hover {
     transform: translateY(-2px);
 }
 
+main > section:nth-of-type(even) {
+    background: var(--color-bg-elevated);
+}
+
 .about {
     padding: var(--spacing-2xl) 0;
-    background: var(--color-bg-elevated);
 }
 
 .about-content {
@@ -392,7 +395,7 @@ a:hover {
     height: 12px;
     background: var(--color-accent);
     border-radius: 50%;
-    border: 2px solid var(--color-bg);
+    border: 2px solid var(--color-bg-elevated);
 }
 
 .timeline-content {
@@ -483,7 +486,6 @@ details li:last-child {
 
 .skills {
     padding: var(--spacing-2xl) 0;
-    background: var(--color-bg-elevated);
 }
 
 .skills-grid {
@@ -504,6 +506,17 @@ details li:last-child {
     color: var(--color-text-muted);
     font-size: 0.95rem;
     line-height: 1.7;
+}
+
+.writing {
+    padding: var(--spacing-2xl) 0;
+}
+
+.writing-blurb {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
 }
 
 .contact {
