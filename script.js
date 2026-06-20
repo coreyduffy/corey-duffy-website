@@ -66,3 +66,31 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-40% 0px -55% 0px' });
 
 document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
+
+// Stagger timeline items
+document.querySelectorAll('.timeline-item').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 80}ms`;
+});
+
+const animObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            animObserver.unobserve(entry.target);
+        }
+    });
+}, { rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.will-animate').forEach(el => animObserver.observe(el));
+
+let rafPending = false;
+window.addEventListener('scroll', () => {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+        const scrolled = window.scrollY;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        document.documentElement.style.setProperty('--scroll-pct', max > 0 ? scrolled / max : 0);
+        rafPending = false;
+    });
+}, { passive: true });

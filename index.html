@@ -37,16 +37,15 @@
     document.documentElement.setAttribute('data-theme', theme);
     </script>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+    <noscript><style>.will-animate { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
     <a href="#content" class="skip-link">Skip to content</a>
+    <div id="scroll-progress" aria-hidden="true"></div>
     <nav class="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <img src="assets/headshot-480.jpg" alt="" class="nav-headshot" width="36" height="36">
+                <img src="assets/headshot-72.webp" alt="" class="nav-headshot" width="36" height="36">
                 <span class="nav-name">Corey Duffy</span>
             </a>
             <ul class="nav-menu">
@@ -76,7 +75,7 @@
                 <div class="hero-image">
                     <picture>
                         <source srcset="assets/headshot-480.webp" type="image/webp">
-                        <img src="assets/headshot-480.jpg" alt="Corey Duffy" class="headshot" width="140" height="140">
+                        <img src="assets/headshot-480.jpg" alt="Corey Duffy" class="headshot" width="200" height="200">
                     </picture>
                 </div>
                 <div class="hero-text">
@@ -92,7 +91,7 @@
             </div>
         </section>
 
-        <section class="about" id="about">
+        <section class="about will-animate" id="about">
             <div class="container">
                 <h2>About</h2>
                 <div class="about-content">
@@ -107,7 +106,7 @@
             </div>
         </section>
 
-        <section class="writing" id="writing">
+        <section class="writing will-animate" id="writing">
             <div class="container">
                 <h2>Writing</h2>
                 <p class="writing-blurb">Notes on software engineering, AI, and building things.</p>
@@ -119,7 +118,7 @@
             <div class="container">
                 <h2>Experience</h2>
                 <div class="timeline">
-                    <div class="timeline-item">
+                    <div class="timeline-item will-animate">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
@@ -139,7 +138,7 @@
                         </div>
                     </div>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item will-animate">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
@@ -159,7 +158,7 @@
                         </div>
                     </div>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item will-animate">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
@@ -179,7 +178,7 @@
                         </div>
                     </div>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item will-animate">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
@@ -199,7 +198,7 @@
                         </div>
                     </div>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item will-animate">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
@@ -217,7 +216,7 @@
                         </div>
                     </div>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item will-animate">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
@@ -239,27 +238,33 @@
             </div>
         </section>
 
-        <section class="skills" id="skills">
+        <section class="skills will-animate" id="skills">
             <div class="container">
                 <h2>Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h3>Languages & Frameworks</h3>
-                        <div class="skill-list">Python · Django · Java · Micronaut · Spring · JavaScript · React · HTML/CSS</div>
+                        <ul class="skill-pills">
+                            <li>Python</li><li>Django</li><li>Java</li><li>Micronaut</li><li>Spring</li><li>JavaScript</li><li>React</li><li>HTML/CSS</li>
+                        </ul>
                     </div>
                     <div class="skill-category">
                         <h3>AI & Data</h3>
-                        <div class="skill-list">LLMs · Vector Databases · PostgreSQL · MySQL · ElasticSearch · ClickHouse</div>
+                        <ul class="skill-pills">
+                            <li>LLMs</li><li>RAG</li><li>Vector Databases</li><li>PostgreSQL</li><li>MySQL</li><li>ElasticSearch</li><li>ClickHouse</li>
+                        </ul>
                     </div>
                     <div class="skill-category">
                         <h3>Cloud & Infrastructure</h3>
-                        <div class="skill-list">AWS · Azure · Docker · Kubernetes · CDK · Git</div>
+                        <ul class="skill-pills">
+                            <li>AWS</li><li>Azure</li><li>Docker</li><li>Terraform</li><li>Kubernetes</li><li>CDK</li><li>Git</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="contact" id="contact">
+        <section class="contact will-animate" id="contact">
             <div class="container">
                 <h2>Get In Touch</h2>
                 <p class="contact-text">Let's connect.</p>
