@@ -52,8 +52,7 @@ test.describe('page structure', () => {
     const count = await skillCategories.count();
     expect(count).toBeGreaterThan(0);
 
-    await expect(page.locator('.skill-list')).toHaveCount(count);
-    await expect(page.locator('.skill-tag')).toHaveCount(0);
+    await expect(page.locator('.skill-pills')).toHaveCount(count);
   });
 
   test('contact section has links', async ({ page }) => {

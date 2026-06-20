@@ -2,7 +2,6 @@
   "name": "corey-duffy-website",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
   "scripts": {
     "serve": "npx serve -l 3000",
     "serve:build": "npx serve -l 3000 build",
