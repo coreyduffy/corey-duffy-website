@@ -29,6 +29,13 @@ function formatDate(date: Date) {
     <header class="blog-article-header">
       <h1>{post.data.title}</h1>
       <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+      {post.data.tags.length > 0 && (
+        <ul class="blog-tags">
+          {post.data.tags.map((tag) => (
+            <li><a href={`/blog/tags/${tag}/`} class="blog-tag">{tag}</a></li>
+          ))}
+        </ul>
+      )}
     </header>
     <div class="blog-prose">
       <Content />
