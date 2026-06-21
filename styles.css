@@ -793,6 +793,34 @@ details li:last-child {
     color: var(--color-text-muted);
 }
 
+.blog-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    padding: 0 var(--spacing-lg) var(--spacing-md);
+}
+
+.blog-article-header .blog-tags {
+    padding: var(--spacing-sm) 0 0;
+}
+
+.blog-tag {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+.blog-tag:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
 .blog-article {
     max-width: 42rem;
 }

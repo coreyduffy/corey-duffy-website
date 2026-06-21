@@ -2,6 +2,7 @@
 title: What to do when your knowledge agent doesn't seem so knowledgeable
 description: "\"Apologies for the confusion.\" Why knowledge agents give wrong answers, and how to fix them."
 pubDate: 2026-06-14
+tags: [AI, Engineering]
 ---
 
 I've worked on a number of knowledge agent projects now. At some point during the development process, when users finally get their hands on their shiny new AI tool to test it, I might hear some variation of the following:
