@@ -2,6 +2,7 @@
 title: How I avoid becoming a stranger in my own codebase
 description: Managing the cognitive load of coding with AI assistants, before they manage me.
 pubDate: 2026-06-22
+tags: [AI, Engineering]
 ---
 
 I've been leaning on AI coding assistants pretty heavily for a while now. Tools like Claude Code and the like can churn out a huge amount of code in an alarmingly short amount of time. This is obviously great in a lot of ways, and the magic of LLMs makes my life infinitely easier day-to-day, if I look past the existential dread of just how capable AI is at a formerly large part of my job.
