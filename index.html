@@ -45,14 +45,14 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <img src="assets/headshot-72.webp" alt="" class="nav-headshot" width="36" height="36">
+                <span class="nav-mark" aria-hidden="true">CD</span>
                 <span class="nav-name">Corey Duffy</span>
             </a>
             <ul class="nav-menu">
                 <li><a href="#about">About</a></li>
+                <li><a href="#writing">Writing</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="/blog/">Writing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-controls">
@@ -70,23 +70,18 @@
     </nav>
 
     <main id="content">
-        <section class="hero" id="hero">
-            <div class="hero-content">
-                <div class="hero-image">
-                    <picture>
-                        <source srcset="assets/headshot-480.webp" type="image/webp">
-                        <img src="assets/headshot-480.jpg" alt="Corey Duffy" class="headshot" width="200" height="200">
-                    </picture>
+        <section class="poster" id="hero">
+            <div class="poster-inner">
+                <div class="poster-main">
+                    <h1 class="poster-name">
+                        <span class="poster-name-line">Corey</span>
+                        <span class="poster-name-line">Duffy</span>
+                    </h1>
+                    <p class="poster-role">Senior Software Engineer | Tech Lead</p>
+                    <p class="poster-tagline">Over a decade writing software and building robust systems. Currently building AI products and digital solutions for enterprise clients, while keeping the robots honest.</p>
                 </div>
-                <div class="hero-text">
-                    <h1>Corey Duffy</h1>
-                    <p class="hero-title">Senior Software Engineer | Tech Lead</p>
-                    <p class="hero-tagline">Over a decade writing software and building robust systems. Currently building AI products and digital solutions for enterprise clients, while keeping the robots honest.</p>
-                    <div class="hero-cta">
-                        <a href="https://linkedin.com/in/coreyduffy" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn</a>
-                        <a href="https://github.com/coreyduffy" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
-                        <a href="#" class="btn btn-secondary email-link" data-u="coreyjduffy" data-d="duck.com">Email</a>
-                    </div>
+                <div class="poster-photo">
+                    <img src="assets/beach-millie.jpeg" alt="" class="poster-headshot">
                 </div>
             </div>
         </section>
@@ -109,8 +104,22 @@
         <section class="writing will-animate" id="writing">
             <div class="container">
                 <h2>Writing</h2>
-                <p class="writing-blurb">Notes on software engineering, AI, and building things.</p>
-                <a class="btn btn-primary" href="/blog/">Read the blog &rarr;</a>
+                <p class="writing-lead">Notes on software engineering, AI, and building things.</p>
+                <ul class="writing-posts">
+                    <li>
+                        <a class="writing-post" href="/blog/how-i-avoid-becoming-a-stranger-in-my-own-codebase/">
+                            <span class="writing-post-title">How I avoid becoming a stranger in my own codebase</span>
+                            <time class="writing-post-date" datetime="2026-06-22">22 Jun 2026</time>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="writing-post" href="/blog/what-to-do-when-your-knowledge-agent-doesnt-seem-so-knowledgeable/">
+                            <span class="writing-post-title">What to do when your knowledge agent doesn't seem so knowledgeable</span>
+                            <time class="writing-post-date" datetime="2026-06-14">14 Jun 2026</time>
+                        </a>
+                    </li>
+                </ul>
+                <a class="writing-more" href="/blog/">All writing &rarr;</a>
             </div>
         </section>
 
